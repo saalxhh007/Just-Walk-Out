@@ -1,0 +1,26 @@
+<annotation>
+	<folder>val</folder>
+	<filename>Screenshot 2025-10-20 194533 - Copy.jpg</filename>
+	<path>C:\Users\ilisa\Desktop\Market-amazon-tracking\Training-Products-Yolo\Soumam-lait-1L-detector\dataset\images\val\Screenshot 2025-10-20 194533 - Copy.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>660</width>
+		<height>772</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>soummam_milk</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>141</xmin>
+			<ymin>7</ymin>
+			<xmax>474</xmax>
+			<ymax>757</ymax>
+		</bndbox>
+	</object>
+</annotation>

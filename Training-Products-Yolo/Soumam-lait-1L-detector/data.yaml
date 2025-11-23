@@ -1,0 +1,5 @@
+train: C:/Users/ilisa/Desktop/Market-amazon-tracking/Training-Products-Yolo/Soumam-lait-1L-detector/dataset/images/train
+val: C:/Users/ilisa/Desktop/Market-amazon-tracking/Training-Products-Yolo/Soumam-lait-1L-detector/dataset/images/val
+
+nc: 1
+names: ['soummam_milk']

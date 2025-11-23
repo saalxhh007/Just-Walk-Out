@@ -1,0 +1,26 @@
+<annotation>
+	<folder>train</folder>
+	<filename>photo_6032791775443275796_y.jpg</filename>
+	<path>C:\Users\ilisa\Desktop\Market-amazon-tracking\Training-Products-Yolo\Soumam-lait-1L-detector\dataset\images\train\photo_6032791775443275796_y.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>964</width>
+		<height>1280</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>soummam_milk</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>405</xmin>
+			<ymin>516</ymin>
+			<xmax>466</xmax>
+			<ymax>666</ymax>
+		</bndbox>
+	</object>
+</annotation>
