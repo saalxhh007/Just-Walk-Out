@@ -26,7 +26,7 @@ def allClients(request):
             "name": client.name,
             "email": client.email,
             "phone": client.phone,
-            "photo": client.photo.url if client.photo else "/media/client-avatars/avatar.jpg"
+            "image": client.image.url if client.image else "/media/client-avatars/avatar.jpg"
         }
         for client in current_page
     ]
@@ -46,7 +46,7 @@ def getClient(request, client_id):
             "name": client.name,
             "email": client.email,
             "phone": client.phone,
-            "photo": client.photo.url if client.photo else "/media/client-avatars/avatar.jpg"
+            "image": client.image.url if client.image else "/media/client-avatars/avatar.jpg"
         }
         return JsonResponse(data)
     except Client.DoesNotExist:
@@ -63,8 +63,8 @@ def createClient(request):
         if field not in request.POST:
             return JsonResponse({"error": f"Missing field: {field}"}, status=400)
 
-    if "photo" not in request.FILES:
-        return JsonResponse({"error": "Missing field: photo"}, status=400)
+    if "image" not in request.FILES:
+        return JsonResponse({"error": "Missing field: image"}, status=400)
 
     try:
         name = request.POST["name"]
@@ -72,10 +72,10 @@ def createClient(request):
             name = name,
             email = request.POST["email"],
             phone = request.POST["phone"],
-            photo = request.FILES["photo"],
+            image = request.FILES["image"],
         )
 
-        image = Image.open(request.FILES["photo"]).convert("RGB")
+        image = Image.open(request.FILES["image"]).convert("RGB")
         img_array = np.array(image)
         saveEmbedding(img_array, name, client.id)
 
@@ -86,7 +86,7 @@ def createClient(request):
                     "id": client.id,
                     "name": client.name,
                     "email": client.email,
-                    "photo": client.photo.url if client.photo else None,
+                    "image": client.image.url if client.image else None,
                 },
             }
         )
@@ -103,7 +103,7 @@ def updateClient(request, client_id):
             client.name = data.get("name", client.name)
             client.email = data.get("email", client.email)
             client.phone = data.get("phone", client.phone)
-            client.photo = data.get("photo", client.photo)
+            client.image = data.get("image", client.image)
 
             client.save()
             return JsonResponse({ "message": "Client updated successfully."})

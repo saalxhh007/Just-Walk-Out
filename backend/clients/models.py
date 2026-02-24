@@ -6,14 +6,18 @@ class Client(models.Model):
     name = models.CharField(max_length=100)
     email = models.EmailField()
     phone = models.CharField(max_length=15)
-    photo = models.ImageField(upload_to='client-avatars/', null=True, blank=True, default='./avatar/avatar.jpg')
+    image = models.ImageField(upload_to='client-avatars/', null=True, blank=True, default='./avatar/avatar.jpg')
     def __str__(self):
         return self.name
-    
+        
 class Product(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
     price = models.FloatField()
+    stock = models.IntegerField()
+    category = models.CharField(max_length=100)
     description = models.TextField(blank=True, null=True)
+    image = models.ImageField(upload_to="products/", null=True, blank=True, default="./products/X_product.jpg")
 
     def __str__(self):
         return self.name
@@ -24,7 +28,7 @@ class Cart(models.Model):
 
     def __str__(self):
         return f"Cart of {self.client.name}"
-    
+
 class CartItem(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE, related_name='items')
     product = models.ForeignKey(Product, on_delete=models.CASCADE)

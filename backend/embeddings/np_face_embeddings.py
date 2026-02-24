@@ -3,7 +3,6 @@ import numpy as np
 from PIL import Image
 import cv2
 
-# Load the InsightFace model once at module level (optional but more efficient)
 model = FaceAnalysis(name="buffalo_l")
 model.prepare(ctx_id=0, det_size=(320, 320))
 
@@ -11,7 +10,6 @@ def get_np_array(file):
     image = Image.open(file).convert("RGB")
     img_array = np.array(image)
     return img_array
-
 
 # Function to get embeddings from an uploaded image (in-memory)
 def get_image_embedding(img_array, model):

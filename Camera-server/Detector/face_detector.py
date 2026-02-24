@@ -13,7 +13,7 @@ from shared.state_manager import save_face, publish_embedding
 from shared.shared_state import face_info_cache
 
 # detects & reconizes faces
-model = YOLO(r"C:\Users\ilisa\Desktop\Market-amazon-tracking\Camera-server\Detector\yolov8n-face.pt")
+model = YOLO("Detector/yolov8n-face.pt")
 app = FaceAnalysis(name="buffalo_l")
 app.prepare(ctx_id=0, det_size=(320, 320))
 

@@ -1,4 +1,3 @@
-from insightface.app import cv2
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from .qdrant_client import qdrant, collection_name
@@ -130,12 +129,10 @@ def delete_embeddings(request):
         return JsonResponse({"error": "Only DELETE requests are allowed."}, status=405)
 
     try:
-        # ✅ Get ID from query params (?id=...)
         point_id = request.GET.get("id")
         if not point_id:
             return JsonResponse({"error": "Missing 'id' query parameter."}, status=400)
 
-        # ✅ Perform deletion
         qc.qdrant.delete(
             collection_name=collection_name,
             points_selector=qc.qmodels.PointIdsList(points=[point_id])

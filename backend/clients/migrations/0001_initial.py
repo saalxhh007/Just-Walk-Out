@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=100)),
                 ('email', models.EmailField(max_length=254)),
                 ('phone', models.CharField(max_length=15)),
-                ('photo', models.ImageField(blank=True, default='./avatar/avatar.jpg', null=True, upload_to='client-avatars/')),
+                ('image', models.ImageField(blank=True, default='./avatar/avatar.jpg', null=True, upload_to='client-avatars/')),
             ],
         ),
     ]
